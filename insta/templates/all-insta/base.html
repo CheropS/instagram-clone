@@ -1,4 +1,9 @@
 {% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static%}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +15,8 @@
 </head>
 <body>
     {% block content %}
-
+    
+    {% include "navbar.html" %}
     {% endblock %}
 
 
