@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def welcome():
-    return render('/all-insta/home.html')
+def welcome(request):
+    return render(request, '/all-insta/home.html')
