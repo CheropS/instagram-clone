@@ -34,4 +34,11 @@
     border-radius: 2px;
 
 }
-
+nav{
+    background-color: white;
+}
+.container-fluid {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
