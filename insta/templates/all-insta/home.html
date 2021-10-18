@@ -1,14 +1,30 @@
 {% extends 'all-insta/base.html' %}
 {% load bootstrap5 %}
+{% load bootstrap_icons %}
+
 
 {% block content %}
     {{block.super}}
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            
+<body>
+        <div class="row m-5">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <p>Username</p>
+                        <div class="card-body">
+                            <img class="image-thumbail" src="https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg" alt="" width="50%">
+                        </div>
+                    </div>
+                    <div class="icons">
+                    <a href="">{% bs_icon 'heart' size='1.7em' color='black' %}</a>
+                    <a href="">{% bs_icon 'chat' size='1.7em' color='black' %}</a>
+                    <a href="">{% bs_icon 'share' size='1.7em' color='black' %}</a>
+                    </div>
+                    
+                    
+                </div>    
+            </div>   
         </div>
     </div>
-</div>
-    
+</body>
 {% endblock %}
