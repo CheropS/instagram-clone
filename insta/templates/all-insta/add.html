@@ -1,0 +1,14 @@
+{% extends 'all-insta/base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+    {{block.super}}
+
+    <div class="form-group m-3">
+        <h2>New Post</h2>
+        <label for="">Select from Computer</label>
+        <input type="file" class="form-control-file"> <br> <br>
+        <button class="btn btn-primary">Share</button>
+    </div>
+
+{% endblock %}
