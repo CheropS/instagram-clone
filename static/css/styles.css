@@ -15,12 +15,12 @@
 }
 .icon4{
     justify-content: right;
-    margin-left: 250px;
+    margin-left: 300px;
 }
 
 .card{
     margin: 2px solid black;
-    width: 60%;
+    width: 40%;
     margin-left: 20%;
     margin-right: 20%;
 }
@@ -38,4 +38,10 @@ body {
 }
 .cont{
     width: 100%;
+}
+.image-thumbail {
+    height: 630px;
+    width: 630px;
+    object-fit: cover;
+    
 }
