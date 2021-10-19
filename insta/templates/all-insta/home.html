@@ -31,8 +31,11 @@
 
         <!--author details and publishing dates-->
         <div class="media-content" id="div">
-            <p class="title is-4" style="color: blue;">{{ post.author }}</p>
-            <p class="subtitle is-6" style="color: blue;">{{ post.caption }}</p>
+            <div class="group">
+                <p class="aut" style="color: blue;">{{ post.author }}</p> <br>
+                <p class="cap" style="color: blue;">{{ post.caption }}</p>
+            </div>
+            
             <p class="subtitle is-8" style="color: purple;">{{ post.created_date | timesince }}
             </p>
 
@@ -41,15 +44,15 @@
                     {% csrf_token %}
                     <input type="hidden" name="post_id" value="{{post.id}}">
                     {% if user not in post.liked.all %}
-                    <button class="button is-success">like</button>
+                    <button class="btn btn-success">like</button>
                     {% else %}
-                    <button class="button is-danger">unlike</button>
+                    <button class="btn btn-danger">unlike</button>
                     {%endif%}
                 </form>
-                <small style="color: rgb(16, 95, 95); font-style: italic;">{{post.liked.all.count}}</small>
+                <small style="color: black; font-style:normal;">{{post.liked.all.count}}</small>
             </div>
 
-            <h2>comments...... </h2>
+            <h2><span>comments...</span></h2>
             {% if not post.comments.all %}
             <p>No Comments Yet... </p>
 
@@ -57,8 +60,8 @@
 
             {% for comment in post.comments.all %}
 
-            <h2>{{comment.name}}</h2>
-            <p>{{comment.comment_body}}</p>
+            <h2 style="color: purple;">{{comment.name}}</h2>
+            <p style="color: green; font-style: italic; font-size: large;">{{comment.comment_body}}</p>
             <p>{{comment.date_added}}</p>
             {%endfor%}
 
@@ -68,7 +71,7 @@
 
         <!--beginning of comment section-->
         <a href="{% url 'add-comment' post.id %}">
-            <button class="button is-info" style="text-transform: capitalize; font-style: italic;">add
+            <button class="btn btn-success" style="text-transform: capitalize; font-style: italic;">add
                 comment</button></a>
     <!--end of comment section-->
     {% endfor %}

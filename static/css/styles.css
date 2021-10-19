@@ -33,7 +33,7 @@ nav{
     margin-right: auto;
 }
 
-body {
+body, h2, p {
     font-family: 'Italianno', cursive;
 }
 .cont{
@@ -44,4 +44,16 @@ body {
     width: 630px;
     object-fit: cover;
     
+}
+/* .aut{
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.cap{
+    padding-right: 20px;
+    padding-left: 20px;
+} */
+.group{
+    display: inline;
+    word-wrap: break-word;
 }
