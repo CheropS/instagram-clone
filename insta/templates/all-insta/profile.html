@@ -1,0 +1,45 @@
+{% extends 'all-insta/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap5%}
+{% block content %}
+
+
+{% include "navbar.html" %}
+
+<section class="section m-5">
+  <div class="container">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{ user.profile.image.url }}" alt="Placeholder image">
+      </div>
+      <div class="card-body">
+        <!--beg of media content-->
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">{{user.username}}</p>
+            <p class="subtitle is-6">{{user.email}}</p>
+          </div>
+        </div>
+        <!--end of media content-->
+      </div>
+      <!--beg of form-->
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">
+            profile
+          </legend>
+          {{ u_form|crispy }}
+          {{ p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+          <br><button class="btn btn-success" type="submit">updated</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

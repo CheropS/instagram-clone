@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'insta',
     'bootstrap5',
     'django_bootstrap_icons',
+    'crispy_forms',
 
 ]
 
