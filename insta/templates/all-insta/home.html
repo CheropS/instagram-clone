@@ -2,25 +2,76 @@
 {% load bootstrap5 %}
 {% load bootstrap_icons %}
 
-
 {% block content %}
-    {{block.super}}
-<body>
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            username 
+{{block.super}}
+<div class="cont m-5">
+    <div class="card"><br>
+        <p class="title is-4" style="color: rgb(95, 16, 95);">{{ post.author }}</p>
+
+        <!-- beginning of adding images  -->
+        {% for post in posts %}
+        <div class="card-image">
+            <figure class="image is-4by3">
+                {% if post.image %}
+                <img src="{{post.image.url}}" alt="Placeholder image"><br>
+                {% endif %}
+            </figure>
+
+            <!--end of images-->
+            
         </div>
-        <img class="image-thumbail" src="https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg" alt=""><br><br>
+        <!--beginning of icons-->
         <div class="icons">
             <a href="" class="icon1">{% bs_icon 'heart' size='1.7em' color='black' %}</a>
             <a href="" class="icon2">{% bs_icon 'chat' size='1.7em' color='black' %}</a>
             <a href="" class="icon3">{% bs_icon 'share' size='1.7em' color='black' %}</a>
             <a href="" class="icon4">{% bs_icon 'bookmark' size='1.7em' color='black' %}</a>
-            </div>
-    </div>
-</div>
+        </div>
+        <!--end of icons-->
 
-        
-</body>
+        <!--author details and publishing dates-->
+        <div class="media-content" id="div">
+            <p class="title is-4" style="color: blue;">{{ post.author }}</p>
+            <p class="subtitle is-6" style="color: blue;">{{ post.caption }}</p>
+            <p class="subtitle is-8" style="color: purple;">{{ post.created_date | timesince }}
+            </p>
+
+            <div class="content" id="content">
+                <form action="{% url 'like-post' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{post.id}}">
+                    {% if user not in post.liked.all %}
+                    <button class="button is-success">like</button>
+                    {% else %}
+                    <button class="button is-danger">unlike</button>
+                    {%endif%}
+                </form>
+                <small style="color: rgb(16, 95, 95); font-style: italic;">{{post.liked.all.count}}</small>
+            </div>
+
+            <h2>comments...... </h2>
+            {% if not post.comments.all %}
+            <p>No Comments Yet... </p>
+
+            {% else %}
+
+            {% for comment in post.comments.all %}
+
+            <h2>{{comment.name}}</h2>
+            <p>{{comment.comment_body}}</p>
+            <p>{{comment.date_added}}</p>
+            {%endfor%}
+
+            {%endif%}
+        </div>
+        <!--end of author details-->
+
+        <!--beginning of comment section-->
+        <a href="{% url 'add-comment' post.id %}">
+            <button class="button is-info" style="text-transform: capitalize; font-style: italic;">add
+                comment</button></a>
+    <!--end of comment section-->
+    {% endfor %}
+</div>
+</div>
 {% endblock %}

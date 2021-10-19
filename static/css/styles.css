@@ -18,30 +18,24 @@
     margin-left: 250px;
 }
 
-.container {
-    padding-top: 50px;
-    position: absolute;
-    top: 50px;
-    bottom: 0;
-    width: 100%;
-   
-}
 .card{
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-
+    margin: 2px solid black;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 nav{
     background-color: white;
 }
 .container-fluid {
     width: 70%;
-    margin-left: auto;
+    margin-left: 15%;
     margin-right: auto;
 }
-*{
+
+body {
     font-family: 'Italianno', cursive;
+}
+.cont{
+    width: 100%;
 }
