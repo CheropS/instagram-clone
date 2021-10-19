@@ -1,0 +1,14 @@
+{% extends 'all-insta/base.html' %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-mobile is-multiline is-centered">
+            <form action="" method="POST">
+              {% csrf_token %}
+              {{form.as_p}}
+            <input type="submit" name="submit">
+            </form>
+    </div>
+    </div>
+</section>
+  {%endblock%}
