@@ -30,7 +30,7 @@
         <!--end of icons-->
 
         <!--author details and publishing dates-->
-        <div class="media-content" id="div">
+        <div class="media-content" id="div" style="margin-left: 5%;">
             <div class="group">
                 <p class="aut" style="color: blue;">{{ post.author }}</p> <br>
                 <p class="cap" style="color: blue;">{{ post.caption }}</p>
@@ -39,7 +39,7 @@
             <p class="subtitle is-8" style="color: purple;">{{ post.created_date | timesince }}
             </p>
 
-            <div class="content" id="content">
+            <div class="content" id="content" style="margin-left:5%;">
                 <form action="{% url 'like-post' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="post_id" value="{{post.id}}">
