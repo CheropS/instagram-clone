@@ -9,7 +9,7 @@ To install the application, you can fork/clone it to your laptop and run it usin
 You then run the application using your favorite code viewer. 
 
 ## How to Use it
-You can follow the deployed link: . 
+You can follow the deployed link:https://instaclone010.herokuapp.com/. 
 A user logs into the application and creates their profile. This allows the user to add, comment and delete images and comments entered. After a user is finished, he/she logs out of the application. 
 
 ## Programming Languages used
