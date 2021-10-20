@@ -38,6 +38,8 @@ nav{
 
 body, h2, p {
     font-family: 'Italianno', cursive;
+    font-size: 195px;
+    font-weight: 400;
 }
 .cont{
     width: 100%;
