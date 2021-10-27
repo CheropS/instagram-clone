@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'django_bootstrap_icons',
     'crispy_forms',
+    
 
 ]
 
@@ -151,3 +153,6 @@ MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 django_on_heroku.settings(locals())
+
+#cofiguring registration
+ACCOUNT_ACTIVATION_DAYS = 14

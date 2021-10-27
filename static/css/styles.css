@@ -63,3 +63,6 @@ body, h2, p {
     display: inline;
     word-wrap: break-word;
 }
+.my_new_class{
+    margin-top: 20%;
+}

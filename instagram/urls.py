@@ -19,13 +19,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views
-
+from django.conf.urls import include 
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('insta.urls')),
+    # path('accounts/', include('registration.backends.default.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     # path('^logout/$', views.logout, {"next_page": '/'})
+   path("logout/", LogoutView.as_view(template_name='accounts/logout.html')),
+   path("accounts/login/", LoginView.as_view(template_name='accounts/login.html')),
 
 ]
 
