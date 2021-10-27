@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{%load crispy_forms_tags%}
+{% load static%}
+
+{% block content %}
+{{block.super}}
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+
+                <div class="card">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {% crispy form %}
+                            {% csrf_token %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
