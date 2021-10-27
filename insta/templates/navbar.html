@@ -14,6 +14,10 @@
 <body>
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
+      <div>
+        <p style="text-align: left;">Welcome {{user}}</p>
+      </div>
+    
       <a class="navbar-brand" href="{% url 'welcome' %}"><span><em>Instagram</em></span></a>
 
       <!-- Adding a search form  -->
@@ -29,29 +33,18 @@
           </div>
 
         </form>
-        
+        </div>
         <!-- beginning of icons  -->
-      </div>
+      <div>
       <a href="{% url 'welcome' %}">{% bs_icon 'house-door-fill' size='34px' color='black' %}</a>
       <a href="">{% bs_icon 'messenger' size='34px' color='black and white' %}</a>
       <a href="{% url 'new-pictures' %}">{% bs_icon 'plus-square' size='34px' color='black' %}</a>
       <a href="{% url 'profile' %}">{% bs_icon 'heart' size='34px' color='black' %}</a>
     </div>
-    <div>
+    
       {% if user.is_authenticated %}
       <ul>
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Profile
-                    <span class="caret"></span>
-                </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="{%url 'welcome'%}">Home</a>
-            </li>
-            <li>
-              <a href="/accounts/password/change">Change Password</a>
-            </li>
-      <li> -->
+        
               <a href="/logout">Logout</a>
             </li>
           </ul>
@@ -64,6 +57,7 @@
 
       {% endif %}
     </div>
+    
   </nav>
 </body>
 </html>
