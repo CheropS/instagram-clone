@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% load bootstrap5 %}
+
+{% load static %}
+{%block content%}
+<div class="container m-5">
+    <h4 style="text-align: center;">Hard to see you leave...</h4>
+
+    <form method="get" action="/accounts/login/">
+        <button type="submit" class="btn btn-primary btn-sm" style="align-items: center;">Login</button>
+    </form>
+</div>
+{%endblock%}
