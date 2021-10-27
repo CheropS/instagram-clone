@@ -9,6 +9,7 @@ urlpatterns=[
     path('add-comment/<int:pk>/', views.add_comment, name='add-comment'),
     path('like/', views.like_post, name='like-post'),
     path('profile/', views.profile, name='profile'),
+    
 
 
 ]

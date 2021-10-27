@@ -3,17 +3,21 @@ from django.utils import timezone
 from django.contrib.auth import forms 
 from django.contrib import messages
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
 from insta.models import Post, Comment, Like, Profile
 from .forms import PostForm, CommentForm, UserUpdateForm, ProfileUpdateForm
 
+
+
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def welcome(request):
     posts = Post.objects.all().filter(created_date__lte = timezone.now()).order_by('-created_date')
     user = request.user
 
     context={ 'posts':posts, 'user':user }
-    return render(request, 'all-insta/home.html', context)
+    return render(request, 'home.html', context)
 
 # def add(request):
 #     return render (request, 'all-insta/add.html')
@@ -29,7 +33,7 @@ def create_post(request):
         return redirect('welcome')
     else:
         form = PostForm()
-    return render(request,'all-insta/add.html',{'form':form})
+    return render(request,'add.html',{'form':form})
 
 def add_comment(request,pk):
     post = Post.objects.get(pk = pk)
@@ -51,7 +55,7 @@ def add_comment(request,pk):
     context = {
         'form':form
     }
-    return render(request,'all-insta/comment.html',context)
+    return render(request,'comment.html',context)
 
 def like_post(request):
     user = request.user
@@ -75,6 +79,7 @@ def like_post(request):
 
     return redirect('welcome')
 
+
 def profile(request):
     user = request.user
     user = Profile.objects.get_or_create(user= request.user)
@@ -86,7 +91,7 @@ def profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated successfully!')
-            return redirect('profile')
+            return redirect('welcome')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
@@ -99,7 +104,7 @@ def profile(request):
 
     }
 
-    return render(request, 'all-insta/profile.html', context)
+    return render(request, 'profile.html', context)
 
 def search_results(request):
 
