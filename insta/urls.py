@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns=[
-    # url('^$',views.welcome,name = 'welcome'),
+    url('^$',views.welcome,name = 'welcome'),
     path('new/',views.create_post,name = 'new-pictures'),
     path('search/', views.search_results, name='search_results'),
     path('add-comment/<int:pk>/', views.add_comment, name='add-comment'),
